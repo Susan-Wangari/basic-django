@@ -1,0 +1,14 @@
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet"/>
+<h1>Welcome home</h1>
+
+<form action="name" method="POST">
+    <!-- used to secure data when using POST method in forms -->
+{% csrf_token %}
+    <input type="text" name="name" placeholder="name"><br><br>
+    <input type="submit" >
+</form>
+
+{% for county in counties%}
+<p>{{county.location}}</p>
+{% endfor %}
